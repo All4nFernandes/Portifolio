@@ -18,16 +18,16 @@ main{
 }
 
 figure{
-    max-width: 160px;
-    max-height: 160px;
+    max-width: 100px;
+    max-height: 200px;
     margin: 0 auto;
     padding: 10px;
 }
 
 figure img{
-    width: 100%;
-    border-radius: 100%;
-    height: 175px;
+    width: 150%;
+    border-radius: 150%;
+    height: 200px;
     object-fit: cover; 
 
 }
