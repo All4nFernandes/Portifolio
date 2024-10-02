@@ -1,0 +1,94 @@
+body{
+    font-family:'Gowun Batang', serif;
+    background-color: #5c5e5c;
+    color: white;
+}
+
+/*removendo estilos padrao do navegador*/
+h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+main{
+    width: 45vw;
+    margin: 0 auto;
+}
+
+figure{
+    max-width: 160px;
+    max-height: 160px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+figure img{
+    width: 100%;
+    border-radius: 100%;
+    height: 175px;
+    object-fit: cover; 
+
+}
+
+p{
+    text-align: justify;
+}
+
+section{
+    padding: 20px 0;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card{
+    width: 160px;
+    padding: 10px;
+    border: 1px solid #c0cdd3;
+    border-radius: 6px;
+}
+
+.card ul li{
+    margin-bottom: 6px;
+}
+.card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    grid-gap: 10px;
+}
+
+.redes-sociais {
+    display: flex; /* Coloca os itens lado a lado */
+    justify-content: center; /* Centraliza os itens */
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0;
+}
+
+.redes-sociais li {
+    margin-right: 15px; /* Espaço entre os ícones */
+}
+
+.redes-sociais a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px; /* Tamanho dos ícones */
+}
+
+.redes-sociais a:hover {
+    color: #0077b5; /* Cor de hover, por exemplo para o LinkedIn */
+}
+
+@media(max-width: 690px){
+   /* body{
+        background-color: red;
+    } colore quando muda os pixels */ 
+
+    main{
+        width: 90vw;
+    }
+}
