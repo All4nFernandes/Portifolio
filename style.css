@@ -29,6 +29,9 @@ figure img{
     border-radius: 150%;
     height: 200px;
     object-fit: cover; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
 }
 
