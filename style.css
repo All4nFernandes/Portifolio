@@ -19,20 +19,16 @@ main{
 
 figure{
     max-width: 100px;
-    max-height: 200px;
+    max-height: 150px;
     margin: 0 auto;
     padding: 10px;
 }
 
 figure img{
-    width: 150%;
+    width: 100%;
     border-radius: 150%;
-    height: 200px;
+    height: 150px;
     object-fit: cover; 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
 }
 
 p{
