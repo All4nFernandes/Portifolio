@@ -12,6 +12,15 @@ h1, h2, p, ul {
     text-align: center;
 }
 
+nav ul{
+    display: flex;
+    height: 8vh;
+    justify-content: space-around;
+    background-color: rgb(29, 28, 28);
+    border-radius: 50px;
+}
+
+
 main{
     width: 45vw;
     margin: 0 auto;
@@ -36,7 +45,7 @@ p{
 }
 
 section{
-    padding: 20px 0;
+    padding: 20px 0; 
 }
 
 h1{
