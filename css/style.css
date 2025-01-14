@@ -1,6 +1,6 @@
 body{
     font-family:'Gowun Batang', serif;
-    background-color: #5c5e5c;
+    background-color: black;
     color: white;
 }
 
@@ -12,6 +12,15 @@ h1, h2, p, ul {
     text-align: center;
 }
 
+nav ul{
+    display: flex;
+    height: 8vh;
+    justify-content: space-around;
+    background-color: rgb(29, 28, 28);
+    border-radius: 50px;
+}
+
+
 main{
     width: 45vw;
     margin: 0 auto;
@@ -19,17 +28,16 @@ main{
 
 figure{
     max-width: 100px;
-    max-height: 200px;
+    max-height: 150px;
     margin: 0 auto;
     padding: 10px;
 }
 
 figure img{
-    width: 154%;
+    width: 100%;
     border-radius: 150%;
-    height: 205px;
+    height: 150px;
     object-fit: cover; 
-
 }
 
 p{
@@ -37,7 +45,7 @@ p{
 }
 
 section{
-    padding: 20px 0;
+    padding: 20px 0; 
 }
 
 h1{
