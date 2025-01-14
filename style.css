@@ -25,9 +25,9 @@ figure{
 }
 
 figure img{
-    width: 150%;
+    width: 154%;
     border-radius: 150%;
-    height: 200px;
+    height: 205px;
     object-fit: cover; 
 
 }
