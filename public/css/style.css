@@ -5,18 +5,28 @@ body {
   font-size: 20px;
   background-color: black;
   color: white;
+  background-image: url("/assets/anime-girl-demon-plano_fundo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-nav ul {
-  display: flex;
-  height: 8vh;
-  justify-content: space-around;
-  background-color: rgb(29, 28, 28);
-  border-radius: 50px;
-}
 main {
   width: 45vw;
   margin: 0 auto;
+}
+
+.Home,
+h1 {
+  font-size: 75px;
+  position: relative;
+  left: -28%;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.Home {
+  text-align: left;
+  font-size: 30px;
+  flex-direction: column;
 }
 
 figure {
@@ -41,10 +51,10 @@ section {
   padding: 20px 0;
 }
 
-h1 {
+/* h1 {
   text-align: center;
   margin-bottom: 10px;
-}
+} */
 
 .card {
   width: 160px;
