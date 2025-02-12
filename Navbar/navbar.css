@@ -2,16 +2,16 @@ nav ul {
   display: flex;
   height: 8vh;
   justify-content: space-around;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(89, 66, 255);
+}
 
 a {
-  color: black;
+  color: rgb(255, 254, 254);
   text-decoration: none;
   text-align: center;
   line-height: 8vh;
 }
 
 a:hover {
-  color: rgb(29, 28, 28);
   text-decoration: underline;
 }
