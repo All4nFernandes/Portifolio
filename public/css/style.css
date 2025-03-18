@@ -2,34 +2,53 @@
 
 body {
   font-family: "Gowun Batang", serif;
-  font-size: 20px;
+  font-size: 25px;
   background-color: black;
   color: white;
-  background-image: url("/assets/PlanoFundo.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-main {
-  width: 45vw;
-  margin: 0 auto;
+.apresentacao {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-left: 0px;
+  gap: 10px;
+  padding: 10px;
 }
 
-.Home,
-h1 {
-  font-size: 75px;
+.foto_perfil {
+  max-width: 250px;
+  max-height: 250px;
+  border: 3px solid;
+  background: linear-gradient(rgb(65, 64, 64), rgb(186, 183, 183) border-box);
+  background-clip: border-box;
+  border-radius: 50%;
   position: relative;
-  left: -28%;
-  text-shadow: 2px 2px 4px #000000;
+  left: 64%;
 }
 
-.Home {
-  text-align: left;
-  font-size: 30px;
-  flex-direction: column;
+.bem-vindo-h1 {
+  font-size: 45px;
+  gap: 10px;
+  margin: 15px 5px;
 }
 
-figure {
+.div_sobre_mim {
+  position: relative;
+  left: 47%;
+}
+
+.sobre_mim_h1 {
+  margin-left: 300px;
+  padding: 15px;
+}
+
+.sobre_mim {
+  text-align: justify;
+  width: 50%;
+}
+
+/* figure {
   max-width: 100px;
   max-height: 150px;
   margin: 0 auto;
@@ -41,20 +60,11 @@ figure img {
   border-radius: 150%;
   height: 150px;
   object-fit: cover;
-}
-
-p {
-  text-align: justify;
-}
+} */
 
 section {
   padding: 20px 0;
 }
-
-/* h1 {
-  text-align: center;
-  margin-bottom: 10px;
-} */
 
 .card {
   width: 160px;
