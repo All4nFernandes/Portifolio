@@ -1,12 +1,13 @@
 @import url("/public/css/reset.css");
 
 body {
+  position: fixed;
   font-family: "Gowun Batang", serif;
   font-size: 25px;
   background-color: black;
   color: white;
+  height: 100%;
 }
-
 .apresentacao {
   display: flex;
   text-align: center;
@@ -36,16 +37,19 @@ body {
 .div_sobre_mim {
   position: relative;
   left: 47%;
+  margin: 0px;
+  padding: 0px;
+  width: 100vh;
 }
 
 .sobre_mim_h1 {
-  margin-left: 300px;
   padding: 15px;
+  text-align: center;
+  width: 250px;
 }
 
 .sobre_mim {
   text-align: justify;
-  width: 50%;
 }
 
 /* figure {
