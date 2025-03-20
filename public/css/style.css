@@ -130,13 +130,39 @@ h2 {
   color: #0077b5; /* Cor de hover, por exemplo para o LinkedIn */
 }
 
-/* Responsividade para telas pequenas */
-@media (max-width: 690px) {
+/* Responsividade para o Samsung Galaxy S22 Plus */
+@media (min-width: 1080px) and (max-width: 2340px) {
+  /* Ajustes específicos para a largura do Samsung Galaxy S22 Plus */
   main {
     width: 100%;
     padding: 10px;
   }
 
+  .bem-vindo-h1 {
+    font-size: 40px; /* Maior para telas maiores */
+  }
+
+  .foto_perfil {
+    max-width: 180px; /* Tamanho maior da foto */
+    max-height: 180px;
+  }
+
+  .apresentacao {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .sobre_mim_h1 {
+    font-size: 28px;
+  }
+
+  .sobre_mim {
+    font-size: 18px;
+  }
+}
+
+/* Ajuste para telas menores que o Samsung S22 Plus */
+@media (max-width: 1080px) {
   .bem-vindo-h1 {
     font-size: 30px;
   }
@@ -148,6 +174,7 @@ h2 {
 
   .apresentacao {
     flex-direction: column;
+    padding: 10px;
   }
 
   .sobre_mim_h1 {
@@ -156,5 +183,30 @@ h2 {
 
   .sobre_mim {
     font-size: 16px;
+  }
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 690px) {
+  .bem-vindo-h1 {
+    font-size: 28px;
+  }
+
+  .foto_perfil {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .apresentacao {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sobre_mim_h1 {
+    font-size: 20px;
+  }
+
+  .sobre_mim {
+    font-size: 14px;
   }
 }
