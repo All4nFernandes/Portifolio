@@ -1,149 +1,105 @@
-@import url("/public/css/reset.css");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
 body {
-  position: fixed;
   font-family: "Merriweather", serif;
   font-size: 25px;
   background: black;
   color: white;
-  overlay: hidden;
   height: 100vh;
-}
-
-main {
-  position: relative;
-  z-index: 1;
+  margin: 0;
+  overflow: hidden;
+  position: relative; /* Adicionando position relative para garantir que o canvas fique no fundo */
 }
 
 canvas {
   position: absolute;
   top: 0;
   left: 0;
-  /* display: block; */
-  z-index: -1;
+  z-index: -1; /* Faz o canvas ficar atrás do conteúdo */
+  width: 100%; /* Faz o canvas ocupar toda a largura da tela */
+  height: 100%; /* Faz o canvas ocupar toda a altura da tela */
+}
+
+main {
+  position: relative;
+  z-index: 1; /* Garante que o conteúdo fique à frente do canvas */
+  padding: 20px;
 }
 
 .apresentacao {
   display: flex;
+  flex-direction: column;
   text-align: center;
   align-items: center;
-  margin-left: 0px;
   gap: 10px;
   padding: 10px;
-  z-index: 1;
 }
 
 .foto_perfil {
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 150px;
+  max-height: 150px;
   border: 3px solid;
   background: linear-gradient(rgb(65, 64, 64), rgb(186, 183, 183) border-box);
   background-clip: border-box;
   border-radius: 50%;
   position: relative;
-  left: 64%;
-  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .bem-vindo-h1 {
-  font-size: 45px;
-  gap: 10px;
+  font-size: 35px;
   margin: 15px 5px;
 }
 
 .div_sobre_mim {
-  position: relative;
-  left: 47%;
-  margin: 0px;
-  padding: 0px;
-  width: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .sobre_mim_h1 {
   padding: 15px;
   text-align: center;
-  width: 250px;
 }
 
 .sobre_mim {
   text-align: justify;
 }
 
-/* figure {
-  max-width: 100px;
-  max-height: 150px;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-figure img {
-  width: 100%;
-  border-radius: 150%;
-  height: 150px;
-  object-fit: cover;
-} */
-
-section {
-  padding: 20px 0;
-}
-
-.card {
-  width: 160px;
-  padding: 10px;
-  border: 1px solid #c0cdd3;
-  border-radius: 6px;
-}
-
-.card,
-h2 {
-  text-align: center;
-}
-
-.card ul li {
-  margin-bottom: 6px;
-}
-.card-container {
+.redes-sociais {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  grid-gap: 10px;
-}
-
-.redes-sociais {
-  display: flex; /* Coloca os itens lado a lado */
-  justify-content: center; /* Centraliza os itens */
-  list-style-type: none; /* Remove os marcadores da lista */
+  list-style-type: none;
   padding: 0;
 }
 
 .redes-sociais li {
-  margin-right: 15px; /* Espaço entre os ícones */
+  margin-right: 10px;
 }
 
 .redes-sociais a {
   text-decoration: none;
   color: white;
-  font-size: 30px; /* Tamanho dos ícones */
+  font-size: 24px;
 }
 
 .redes-sociais a:hover {
-  color: #0077b5; /* Cor de hover, por exemplo para o LinkedIn */
+  color: #0077b5;
 }
 
 /* Responsividade para o Samsung Galaxy S22 Plus */
 @media (min-width: 1080px) and (max-width: 2340px) {
-  /* Ajustes específicos para a largura do Samsung Galaxy S22 Plus */
   main {
     width: 100%;
     padding: 10px;
   }
 
   .bem-vindo-h1 {
-    font-size: 40px; /* Maior para telas maiores */
+    font-size: 40px; /* Aumenta o tamanho do título */
   }
 
   .foto_perfil {
-    max-width: 180px; /* Tamanho maior da foto */
+    max-width: 180px; /* Aumenta a imagem de perfil */
     max-height: 180px;
   }
 
@@ -161,7 +117,7 @@ h2 {
   }
 }
 
-/* Ajuste para telas menores que o Samsung S22 Plus */
+/* Ajustes para telas menores que o Samsung S22 Plus */
 @media (max-width: 1080px) {
   .bem-vindo-h1 {
     font-size: 30px;
