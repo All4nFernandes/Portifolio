@@ -1,13 +1,28 @@
 @import url("/public/css/reset.css");
-
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
 body {
   position: fixed;
-  font-family: "Gowun Batang", serif;
+  font-family: "Merriweather", serif;
   font-size: 25px;
-  background-color: black;
+  background: black;
   color: white;
-  height: 100%;
+  overlay: hidden;
+  height: 100vh;
 }
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* display: block; */
+  z-index: -1;
+}
+
 .apresentacao {
   display: flex;
   text-align: center;
@@ -15,6 +30,7 @@ body {
   margin-left: 0px;
   gap: 10px;
   padding: 10px;
+  z-index: 1;
 }
 
 .foto_perfil {
@@ -26,6 +42,7 @@ body {
   border-radius: 50%;
   position: relative;
   left: 64%;
+  z-index: 2;
 }
 
 .bem-vindo-h1 {
@@ -113,12 +130,31 @@ h2 {
   color: #0077b5; /* Cor de hover, por exemplo para o LinkedIn */
 }
 
+/* Responsividade para telas pequenas */
 @media (max-width: 690px) {
-  /* body{
-        background-color: red;
-    } colore quando muda os pixels */
-
   main {
-    width: 90vw;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .bem-vindo-h1 {
+    font-size: 30px;
+  }
+
+  .foto_perfil {
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .apresentacao {
+    flex-direction: column;
+  }
+
+  .sobre_mim_h1 {
+    font-size: 24px;
+  }
+
+  .sobre_mim {
+    font-size: 16px;
   }
 }

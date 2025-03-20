@@ -1,18 +1,25 @@
 nav ul {
   display: flex;
-  height: 8vh;
-  width: 150vh;
-  justify-content: space-around;
-  background: linear-gradient(rgb(240, 240, 244), rgb(153, 141, 141));
+  /* height: 8vh; */
+  /* width: 150vh; */
+  background: none;
+  background-color: none;
+  /* background: linear-gradient(rgb(240, 240, 244), rgb(153, 141, 141)); */
   text-align: center;
   align-items: center;
   border-radius: 45px;
   margin-left: 17.9%;
   margin-top: 15px;
+  z-index: -2;
+}
+
+ul {
+  justify-content: space-between;
+  background: none;
 }
 
 a {
-  color: black;
+  color: #ffff;
   text-decoration: none;
   text-align: center;
   line-height: 8vh;
