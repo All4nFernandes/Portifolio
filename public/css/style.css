@@ -18,27 +18,20 @@
   font-size: 3rem;
   letter-spacing: 2px;
   opacity: 0;
-  animation: showTitle 1s forwards 5s;
-  animation: hiddenTitle 3s forwards 3s;
+  animation: fadeInOut 5s ease-in-out forwards;
 }
 
-@keyframes showTitle {
-  from {
+@keyframes fadeInOut {
+  0% {
     opacity: 0;
   }
-  to {
-    opacity: 0.5;
-  }
-  to {
+  30% {
     opacity: 1;
   }
-}
-
-@keyframes hiddenTitle {
-  from {
+  70% {
     opacity: 1;
   }
-  to {
+  100% {
     opacity: 0;
   }
 }
