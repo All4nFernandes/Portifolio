@@ -1,0 +1,53 @@
+.memory-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 20px;
+  opacity: 0;
+  animation: fadeInOut 5s ease-in-out forwards 5s;
+}
+
+@keyframes fadeInOut {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+.cards {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.links-cards {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: "Exo", sans-serif;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate3d(0, 0, 0, 0grad);
+  }
+  to {
+    transform: rotate3d(0, 1, 0, 360grad);
+  }
+}
+
+.cards {
+  animation: spin infinite 10s linear;
+}
+
+.links-cards:hover {
+  transition: transform 0.3s ease;
+  font-size: 1.4rem;
+}
