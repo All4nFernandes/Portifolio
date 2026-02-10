@@ -47,7 +47,8 @@
   animation: spin infinite 10s linear;
 }
 
-.links-cards:hover {
-  transition: transform 0.3s ease;
-  font-size: 1.4rem;
+.cards:hover {
+  position: relative;
+  top: -25px;
+  /* transition: transform 0.3s ease; */
 }
