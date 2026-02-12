@@ -1,15 +1,24 @@
-.div-titulo {
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;
+}
+
+/* Tela Start e Intro */
+.div-titulo,
+.start {
   font-family: "Exo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 1;
   transition: opacity 0.5s ease-in-out;
+}
+
+/* Tela Start */
+.start {
+  z-index: 10;
 }
 
 .titulo {
@@ -17,21 +26,42 @@
   font-size: 3rem;
   letter-spacing: 2px;
   opacity: 0;
-  animation: intro 5s ease-in-out forwards;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  transform: scale(0.9);
 }
 
-@keyframes intro {
+/* Botão visível */
+.titulo.activate {
+  opacity: 1;
+  cursor: pointer;
+}
+
+@keyframes piscar {
   0% {
+    opacity: 1;
+  }
+  50% {
     opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
   }
   100% {
-    opacity: 0;
-    display: none;
+    opacity: 1;
   }
+}
+
+.titulo.activate {
+  opacity: 1;
+  cursor: pointer;
+  animation: piscar 2s infinite ease-in-out;
+}
+
+/* Animação da intro */
+.titulo.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Conteúdo principal começa escondido */
+main {
+  opacity: 0;
+  transition: opacity 1s ease;
 }

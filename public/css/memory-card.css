@@ -25,6 +25,10 @@
   border-radius: 10px;
   padding: 20px;
   text-align: center;
+  
+  p{
+    color: white;
+  }
 }
 
 .links-cards {
@@ -51,4 +55,10 @@
   position: relative;
   top: -25px;
   /* transition: transform 0.3s ease; */
+}
+
+@media screen and (max-width: 768px){
+  .memory-card{
+    flex-direction: column;
+  }
 }
