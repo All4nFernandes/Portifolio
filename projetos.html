@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Projetos — Allan Fernandes</title>
+    <style>
+      body { overflow: auto; }
+    </style>
+  </head>
+  <body>
+    <canvas id="ps2-bg"></canvas>
+
+    <div class="page-wrapper">
+
+      <!-- Nav -->
+      <nav class="page-nav">
+        <a class="nav-back" href="/index.html">
+          <span class="btn-symbol">×</span> Voltar
+        </a>
+        <span class="nav-breadcrumb">MENU &rsaquo; <span>PROJETOS</span></span>
+      </nav>
+
+      <!-- Header -->
+      <header class="page-header">
+        <span class="page-section-label">// Arquivo 02</span>
+        <h1 class="page-title">Meus <span class="accent">Projetos</span></h1>
+        <div class="page-divider"></div>
+      </header>
+
+      <!-- Projects grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Renderizado por JS abaixo -->
+      </div>
+
+    </div>
+
+    <script src="/public/js/ps2-bg.js" defer></script>
+    <script defer>
+      /**
+       * EDITE OS PROJETOS ABAIXO.
+       * Campos: icon (emoji), tag, title, desc, stack (array), link (URL ou '')
+       */
+      const projects = [
+        {
+          icon: '🏫',
+          tag: 'Web App',
+          title: 'Hub Academy — SENAC',
+          desc: 'Plataforma MVP multi-página para gerenciamento do espaço Hub Academy da Senac Campo Grande. Autenticação dual (admin/aluno), browser de salas, agenda e painel administrativo.',
+          stack: ['PHP', 'Vanilla JS', 'CSS', 'FastAPI', 'SQLite'],
+          link: '',
+        },
+        {
+          icon: '⚡',
+          tag: 'Automação',
+          title: 'Win11 Optimizer',
+          desc: 'Script PowerShell modular (10 seções) para otimização de desempenho e privacidade no Windows 11. Abrange energia, rede, serviços, disco e startup com codificação UTF-8 correta.',
+          stack: ['PowerShell', 'Windows 11', 'Registry', 'GPO'],
+          link: '',
+        },
+        {
+          icon: '🎨',
+          tag: 'Design',
+          title: 'Portfólio PS2',
+          desc: 'Este portfólio — inspirado na interface do PlayStation 2. Tela de boot, animação de ribbons em canvas, cards estilo memory card e transições suaves.',
+          stack: ['HTML', 'CSS', 'JavaScript', 'Canvas API'],
+          link: '',
+        },
+        {
+          icon: '🔍',
+          tag: 'OSINT',
+          title: 'Estudo OSINT Tools',
+          desc: 'Exploração e configuração de ferramentas de inteligência de fonte aberta: Sherlock, PhoneInfoga, SpiderFoot e Holehe. Documentação de workarounds para Docker/WSL2 no Windows.',
+          stack: ['Python', 'Docker', 'WSL2', 'Linux'],
+          link: '',
+        },
+        /* ── Adicione mais projetos aqui ── */
+        /*
+        {
+          icon: '🌐',
+          tag: 'Tag',
+          title: 'Nome do Projeto',
+          desc: 'Descrição do projeto.',
+          stack: ['Tech1', 'Tech2'],
+          link: 'https://github.com/seu-usuario/projeto',
+        },
+        */
+      ];
+
+      const grid = document.getElementById('projectsGrid');
+
+      projects.forEach((p, i) => {
+        const linkHTML = p.link
+          ? `<a class="project-link" href="${p.link}" target="_blank" rel="noopener">
+               Ver projeto &rarr;
+             </a>`
+          : '';
+
+        const stackHTML = p.stack
+          .map(s => `<span class="stack-badge">${s}</span>`)
+          .join('');
+
+        grid.insertAdjacentHTML('beforeend', `
+          <article class="ps-card project-card" style="opacity:0;transform:translateY(20px);transition:opacity 0.4s ease ${i * 0.1}s,transform 0.4s ease ${i * 0.1}s">
+            <div class="project-card-top">
+              <span class="project-icon">${p.icon}</span>
+              <span class="project-tag">${p.tag}</span>
+            </div>
+            <h2 class="project-title">${p.title}</h2>
+            <p class="project-desc">${p.desc}</p>
+            <div class="project-stack">${stackHTML}</div>
+            ${linkHTML}
+          </article>
+        `);
+      });
+
+      // Trigger reveal animation
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          document.querySelectorAll('.project-card').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          });
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

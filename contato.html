@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Contato — Allan Fernandes</title>
+    <style>
+      body { overflow: auto; }
+    </style>
+  </head>
+  <body>
+    <canvas id="ps2-bg"></canvas>
+
+    <div class="page-wrapper">
+
+      <!-- Nav -->
+      <nav class="page-nav">
+        <a class="nav-back" href="/index.html">
+          <span class="btn-symbol">×</span> Voltar
+        </a>
+        <span class="nav-breadcrumb">MENU &rsaquo; <span>CONTATO</span></span>
+      </nav>
+
+      <!-- Header -->
+      <header class="page-header">
+        <span class="page-section-label">// Arquivo 03</span>
+        <h1 class="page-title">Entre em <span class="accent">Contato</span></h1>
+        <div class="page-divider"></div>
+      </header>
+
+      <!-- Content Grid -->
+      <div class="contact-grid">
+
+        <!-- Links sociais -->
+        <div class="ps-card">
+          <span class="ps-card-label">// Links</span>
+          <div class="contact-links-list">
+
+            <!-- Edite os hrefs abaixo com seus links reais -->
+            <a class="contact-link" href="https://github.com/" target="_blank" rel="noopener">
+              <span class="cl-icon">⌥</span>
+              <span class="cl-label">GitHub</span>
+              <span class="cl-arrow">→</span>
+            </a>
+
+            <a class="contact-link" href="https://www.linkedin.com/in/allan-fernandes-665396230/" target="_blank" rel="noopener">
+              <span class="cl-icon">in</span>
+              <span class="cl-label">LinkedIn</span>
+              <span class="cl-arrow">→</span>
+            </a>
+
+            <a class="contact-link" href="allandossantosfernandes@gmail.com">
+              <span class="cl-icon">✉</span>
+              <span class="cl-label">allandossantosfernandes@gmail.com</span>
+              <span class="cl-arrow">→</span>
+            </a>
+
+            <a class="contact-link" href="https://wa.me/5567991813254" target="_blank" rel="noopener">
+              <span class="cl-icon">💬</span>
+              <span class="cl-label">WhatsApp</span>
+              <span class="cl-arrow">→</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Formulário -->
+        <div class="ps-card">
+          <span class="ps-card-label">// Enviar Mensagem</span>
+          <div class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="cf-name">Nome</label>
+              <input type="text" id="cf-name" placeholder="Seu nome" autocomplete="off" />
+            </div>
+
+            <div class="form-group">
+              <label for="cf-email">E-mail</label>
+              <input type="email" id="cf-email" placeholder="seu@email.com" autocomplete="off" />
+            </div>
+
+            <div class="form-group">
+              <label for="cf-msg">Mensagem</label>
+              <textarea id="cf-msg" placeholder="Digite sua mensagem..."></textarea>
+            </div>
+
+            <button class="form-btn" id="sendBtn" type="button">
+              <span>○</span> Enviar
+            </button>
+
+            <p id="formFeedback" style="font-family:var(--mono);font-size:0.75rem;color:var(--accent);display:none;text-align:center;letter-spacing:2px;"></p>
+          </div>
+        </div>
+
+      </div><!-- /contact-grid -->
+
+      <!-- Nota -->
+      <p style="font-family:var(--mono);font-size:0.65rem;letter-spacing:2px;color:var(--silver-dim);margin-top:8px;text-align:center;">
+        // Respondo em até 48h &mdash; Campo Grande, MS &mdash; Brasil
+      </p>
+
+    </div>
+
+    <script src="/public/js/ps2-bg.js" defer></script>
+    <script defer>
+      /**
+       * Formulário de contato — por padrão usa mailto:.
+       * Para integrar com um backend / Formspree / EmailJS,
+       * substitua a lógica dentro do sendBtn listener.
+       */
+      document.getElementById('sendBtn').addEventListener('click', () => {
+        const name  = document.getElementById('cf-name').value.trim();
+        const email = document.getElementById('cf-email').value.trim();
+        const msg   = document.getElementById('cf-msg').value.trim();
+        const fb    = document.getElementById('formFeedback');
+
+        if (!name || !email || !msg) {
+          fb.style.color = '#e74c3c';
+          fb.textContent = '// Preencha todos os campos.';
+          fb.style.display = 'block';
+          return;
+        }
+
+        // Fallback: abre cliente de e-mail do usuário
+        const subject = encodeURIComponent(`Contato via Portfólio — ${name}`);
+        const body    = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\n${msg}`);
+        window.location.href = `mailto:seuemail@email.com?subject=${subject}&body=${body}`;
+
+        fb.style.color = 'var(--accent)';
+        fb.textContent = '// Redirecionando para cliente de e-mail...';
+        fb.style.display = 'block';
+      });
+    </script>
+  </body>
+</html>

@@ -1,7 +1,158 @@
 @import url(reset.css);
 @import url(intro.css);
 @import url(memory-card.css);
+@import url(pages.css);
+
+/* =============================================
+   DESIGN SYSTEM — PS2 Portfolio
+   ============================================= */
+:root {
+  --bg:          #040612;
+  --bg2:         #070d20;
+  --blue-deep:   #0b1a3a;
+  --blue-mid:    #163362;
+  --blue-bright: #2563eb;
+  --blue-glow:   #3b82f6;
+  --blue-light:  #93c5fd;
+  --white:       #e8edf5;
+  --silver:      #8da0bc;
+  --silver-dim:  #4a5a6e;
+  --accent:      #0ea5e9;
+  --accent-glow: rgba(14, 165, 233, 0.25);
+  --border:      rgba(100, 150, 220, 0.2);
+  --glass:       rgba(10, 22, 58, 0.65);
+  --radius:      8px;
+
+  --font:  'Exo', sans-serif;
+  --mono:  'Share Tech Mono', monospace;
+}
+
+/* === BASE === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background-color: black;
+  background-color: var(--bg);
+  color: var(--white);
+  font-family: var(--font);
+  min-height: 100vh;
+  overflow: hidden; /* unlocked after start */
 }
+
+/* === PS2 BG CANVAS === */
+#ps2-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* === MAIN LAYOUT === */
+#mainContent {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 24px;
+}
+
+/* === HEADER === */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 14px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-title .ps-icon {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.header-title h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--silver);
+  font-family: var(--mono);
+}
+
+.header-date {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--silver-dim);
+  letter-spacing: 2px;
+}
+
+/* === MENU LABEL === */
+.menu-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.menu-label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--silver-dim);
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin-left: 10px;
+}
+
+/* === FOOTER === */
+.main-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0 4px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--silver-dim);
+  letter-spacing: 1px;
+}
+
+.footer-controls {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-controls span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-x  { color: #e74c3c; }
+.btn-o  { color: var(--accent); }
+.btn-sq { color: #9b59b6; }
+.btn-tr { color: #2ecc71; }
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 2px; }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,51 +7,102 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap"
       rel="stylesheet"
     />
-    <title>Portifolio - Allan</title>
+    <title>Allan Fernandes — Portfólio</title>
   </head>
   <body>
-    <div class="start" id="startScreen">
-      <h1 class="titulo activate">
-        Pressione Start
-      </h1>
+    <!-- Background canvas (PS2 waves) -->
+    <canvas id="ps2-bg"></canvas>
+
+    <!-- ① Start Screen -->
+    <div class="start-screen" id="startScreen" role="button" tabindex="0" aria-label="Pressione para entrar">
+      <div class="start-logo">
+        <div class="ps2-logo">
+          <span>P</span><span>S</span><span>2</span>
+        </div>
+        <p class="start-hint">Pressione Start</p>
+      </div>
+      <div class="ps2-buttons">
+        <span style="color:#2ecc71">△</span>
+        <span style="color:#e74c3c">○</span>
+        <span style="color:#3498db">□</span>
+        <span style="color:#9b59b6">×</span>
+      </div>
     </div>
 
-    <div class="div-titulo" id="IntroText">
-      <h1 class="titulo">Allan Fernandes - Portifolio</h1>
+    <!-- ② Intro Text -->
+    <div class="intro-screen" id="introScreen" aria-hidden="true">
+      <div class="intro-content">
+        <p class="intro-sub">Bem-vindo ao portfólio de</p>
+        <h1 class="intro-title">Allan Fernandes</h1>
+        <p class="intro-role">Desenvolvedor Full Stack</p>
+      </div>
     </div>
-    <main>
-      <section>
+
+    <!-- ③ Main Menu -->
+    <main id="mainContent">
+      <header class="main-header">
+        <div class="header-title">
+          <span class="ps-icon">⬡</span>
+          <h1>Allan Fernandes</h1>
+        </div>
+        <div class="header-date" id="headerDate"></div>
+      </header>
+
+      <section class="menu-section">
+        <span class="menu-label">// Menu Principal</span>
+
         <div class="memory-card">
-          <div class="cards">
-            <a class="links-cards" href=""
-              ><img
-                src="/public/img/icons/icons8-sobre-mim-100.png"
-                alt="sobre mim"
-            /></a>
-            <p>Sobre mim</p>
-          </div>
-          <div class="cards">
-            <a class="links-cards" href=""
-              ><img
-                src="/public/img/icons/icons8-código-100.png"
-                alt="sobre mim"
-            /></a>
-            <p>Projetos</p>
-          </div>
-          <div class="cards">
-            <a class="links-cards" href=""
-              ><img
-                src="/public/img/icons/icons8-sobre-mim-100.png"
-                alt="sobre mim"
-            /></a>
-            <p>Contato</p>
-          </div>
+          <!-- Sobre Mim -->
+          <a class="cards" href="/sobre-mim.html">
+            <div class="card-icon">
+              <img src="/public/img/icons/icons8-sobre-mim-100.png" alt="" />
+            </div>
+            <div class="card-info">
+              <p class="card-title">Sobre Mim</p>
+              <p class="card-desc">Quem sou eu</p>
+            </div>
+            <span class="card-btn">○</span>
+          </a>
+
+          <!-- Projetos -->
+          <a class="cards" href="/projetos.html">
+            <div class="card-icon">
+              <img src="/public/img/icons/icons8-codigo-100.png" alt="" />
+            </div>
+            <div class="card-info">
+              <p class="card-title">Projetos</p>
+              <p class="card-desc">Meu trabalho</p>
+            </div>
+            <span class="card-btn">○</span>
+          </a>
+
+          <!-- Contato -->
+          <a class="cards" href="/contato.html">
+            <div class="card-icon">
+              <div class="contact-icon">✉</div>
+            </div>
+            <div class="card-info">
+              <p class="card-title">Contato</p>
+              <p class="card-desc">Fale comigo</p>
+            </div>
+            <span class="card-btn">○</span>
+          </a>
         </div>
       </section>
+
+      <footer class="main-footer">
+        <span>© 2025 Allan Fernandes</span>
+        <div class="footer-controls">
+          <span><span class="btn-x">×</span> Sair</span>
+          <span><span class="btn-o">○</span> Selecionar</span>
+        </div>
+      </footer>
     </main>
+
+    <script src="/public/js/ps2-bg.js" defer></script>
+    <script src="/public/js/StartScreen.js" defer></script>
   </body>
-  <script src="public/js/StartScreen.js" defer></script>
 </html>

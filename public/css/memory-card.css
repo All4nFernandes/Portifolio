@@ -1,64 +1,166 @@
+/* =============================================
+   MEMORY CARD MENU
+   ============================================= */
+
 .memory-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   gap: 20px;
-  opacity: 0;
-  animation: fadeInOut 5s ease-in-out forwards 5s;
+  width: 100%;
+  max-width: 780px;
+  justify-content: center;
 }
 
-@keyframes fadeInOut {
-  from {
-    display: none;
-    opacity: 0;
-  }
-  to {
-    display: flex;
-    opacity: 1;
-  }
-}
-
+/* Individual card */
 .cards {
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  
-  p{
-    color: white;
-  }
-}
-
-.links-cards {
-  color: white;
+  flex: 1;
+  max-width: 220px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
-  font-size: 1.2rem;
-  font-family: "Exo", sans-serif;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  /* Idle float animation */
+  animation: cardFloat 4s ease-in-out infinite;
+  transition: transform 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              background 0.25s ease;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate3d(0, 0, 0, 0grad);
-  }
-  to {
-    transform: rotate3d(0, 1, 0, 360grad);
-  }
-}
+/* Stagger idle float per card */
+.cards:nth-child(1) { animation-delay: 0s;    }
+.cards:nth-child(2) { animation-delay: 0.6s;  }
+.cards:nth-child(3) { animation-delay: 1.2s;  }
 
-.cards {
-  animation: spin infinite 10s linear;
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
 }
 
 .cards:hover {
-  position: relative;
-  top: -25px;
-  /* transition: transform 0.3s ease; */
+  transform: translateY(-14px) !important;
+  border-color: var(--accent);
+  box-shadow: 0 0 24px var(--accent-glow), 0 8px 32px rgba(0,0,0,0.5);
+  background: rgba(14, 165, 233, 0.08);
+  animation: none; /* pause idle on hover */
 }
 
-@media screen and (max-width: 768px){
-  .memory-card{
+/* Shimmer line on hover */
+.cards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transition: left 0.4s ease;
+}
+.cards:hover::before { left: 140%; }
+
+/* Top accent bar */
+.cards::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.cards:hover::after { opacity: 1; }
+
+/* Icon area */
+.card-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.75);
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.cards:hover .card-icon img {
+  filter: brightness(0) invert(1) opacity(1);
+  transform: scale(1.1);
+}
+
+/* Text icon fallback (for contact card) */
+.contact-icon {
+  font-size: 2.2rem;
+  color: var(--silver);
+  transition: color 0.25s ease;
+}
+.cards:hover .contact-icon { color: var(--white); }
+
+/* Card text */
+.card-info {
+  text-align: center;
+}
+
+.card-title {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.card-desc {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--silver-dim);
+  text-transform: uppercase;
+}
+
+/* Button symbol */
+.card-btn {
+  font-size: 0.9rem;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-family: var(--mono);
+}
+.cards:hover .card-btn { opacity: 1; }
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .memory-card {
     flex-direction: column;
+    align-items: center;
+    gap: 16px;
   }
+
+  .cards {
+    width: 100%;
+    max-width: 320px;
+    flex-direction: row;
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  .card-icon { width: 48px; height: 48px; flex-shrink: 0; }
+  .card-info { text-align: left; flex: 1; }
+  .card-btn  { margin-left: auto; }
+
+  @keyframes cardFloat { 0%, 100% { transform: none; } }
 }

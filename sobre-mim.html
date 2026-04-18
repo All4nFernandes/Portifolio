@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Sobre Mim — Allan Fernandes</title>
+    <style>
+      body { overflow: auto; }
+    </style>
+  </head>
+  <body>
+    <canvas id="ps2-bg"></canvas>
+
+    <div class="page-wrapper">
+
+      <!-- Nav -->
+      <nav class="page-nav">
+        <a class="nav-back" href="/index.html">
+          <span class="btn-symbol">×</span> Voltar
+        </a>
+        <span class="nav-breadcrumb">MENU &rsaquo; <span>SOBRE MIM</span></span>
+      </nav>
+
+      <!-- Header -->
+      <header class="page-header">
+        <span class="page-section-label">// Arquivo 01</span>
+        <h1 class="page-title">Sobre <span class="accent">Mim</span></h1>
+        <div class="page-divider"></div>
+      </header>
+
+      <!-- Bio -->
+      <div class="ps-card about-bio" style="margin-bottom: 20px;">
+        <span class="ps-card-label">// Dados do Jogador</span>
+        <p>
+          Olá! Sou <strong style="color:var(--white)">Allan Fernandes</strong>, desenvolvedor Full Stack baseado em
+          Campo Grande, MS. Formado em Análise e Desenvolvimento de Sistemas pela
+          <strong style="color:var(--white)">Senac Hub Academy</strong> e atualmente cursando
+          <strong style="color:var(--white)">Engenharia de Software</strong> na Unigran.
+        </p>
+        <p style="margin-top: 12px;">
+          Tenho paixão por construir interfaces bem estruturadas e sistemas que escalam.
+        </p>
+        <!-- Edite o texto acima conforme necessário -->
+      </div>
+
+      <!-- Info Grid -->
+      <div class="about-grid">
+
+        <!-- Dados -->
+        <div class="ps-card">
+          <span class="ps-card-label">// Informações</span>
+          <table class="data-table">
+            <tr>
+              <td>Localização</td>
+              <td>Campo Grande, MS</td>
+            </tr>
+            <tr>
+              <td>Formação</td>
+              <td>ADS — Senac Hub Academy</td>
+            </tr>
+            <tr>
+              <td>Cursando</td>
+              <td>Eng. Software — Unigran</td>
+            </tr>
+            <tr>
+              <td>Foco</td>
+              <td>Full Stack Dev</td>
+            </tr>
+            <tr>
+              <td>Idiomas</td>
+              <td>Português</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Skills -->
+        <div class="ps-card">
+          <span class="ps-card-label">// Habilidades Técnicas</span>
+          <div class="skills-list" id="skillsList">
+            <!-- renderizado por JS -->
+          </div>
+        </div>
+
+        <!-- Interesses -->
+        <div class="ps-card">
+          <span class="ps-card-label">// Interesses</span>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <!-- Edite as tags abaixo -->
+            <span class="stack-badge">Full Stack Dev</span>
+            <span class="stack-badge">UI / UX</span>
+            <span class="stack-badge">Sistemas Distribuídos</span>
+            <span class="stack-badge">Automação</span>
+          </div>
+        </div>
+
+        <!-- Ferramentas -->
+        <div class="ps-card">
+          <span class="ps-card-label">// Ferramentas</span>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <span class="stack-badge">VS Code</span>
+            <span class="stack-badge">Figma</span>
+            <span class="stack-badge">Git / GitHub</span>
+            <span class="stack-badge">Linux</span>
+          </div>
+        </div>
+
+      </div><!-- /about-grid -->
+
+    </div><!-- /page-wrapper -->
+
+    <script src="/public/js/ps2-bg.js" defer></script>
+    <script defer>
+      // Animate skill bars on page load
+      const skills = [
+        { name: 'PHP',    pct: 75 },
+        { name: 'JavaScript / ES6', pct: 80 },
+        { name: 'HTML / CSS',       pct: 88 },
+        { name: 'Python', pct: 60 },
+        { name: 'SQL / SQLite',     pct: 65 },
+      ];
+      // Edite as porcentagens acima conforme necessário
+
+      const list = document.getElementById('skillsList');
+      skills.forEach(s => {
+        list.insertAdjacentHTML('beforeend', `
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">${s.name}</span>
+              <span class="skill-pct">${s.pct}%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-pct="${s.pct}"></div>
+            </div>
+          </div>
+        `);
+      });
+
+      // Trigger animation after paint
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          document.querySelectorAll('.skill-bar-fill').forEach(el => {
+            el.style.width = el.dataset.pct + '%';
+          });
+        }, 200);
+      });
+    </script>
+  </body>
+</html>

@@ -1,67 +1,126 @@
-body {
-  margin: 0;
-  background: black;
-  overflow: hidden;
-}
+/* =============================================
+   INTRO / START SCREEN
+   ============================================= */
 
-/* Tela Start e Intro */
-.div-titulo,
-.start {
-  font-family: "Exo", sans-serif;
+/* --- Start Screen --- */
+.start-screen {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  cursor: pointer;
+  user-select: none;
+}
+
+.start-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* PS2-style logo block */
+.ps2-logo {
+  display: flex;
+  gap: 2px;
+}
+
+.ps2-logo span {
+  font-family: var(--font);
+  font-weight: 900;
+  font-size: clamp(3rem, 10vw, 6rem);
+  letter-spacing: -4px;
+  color: var(--white);
+  text-shadow: 0 0 40px rgba(59, 130, 246, 0.6),
+               0 0 80px rgba(59, 130, 246, 0.2);
+  line-height: 1;
+}
+
+/* Blinking hint */
+.start-hint {
+  font-family: var(--mono);
+  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+  letter-spacing: 5px;
+  color: var(--silver);
+  text-transform: uppercase;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* PS2 button symbols — decorative */
+.ps2-buttons {
+  position: absolute;
+  bottom: 36px;
+  right: 36px;
+  display: flex;
+  gap: 12px;
+}
+
+.ps2-buttons span {
+  font-size: 1.2rem;
+  opacity: 0.35;
+  color: var(--silver);
+}
+
+/* --- Intro Screen --- */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.intro-content {
   text-align: center;
-  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Tela Start */
-.start {
-  z-index: 10;
+.intro-sub {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 6px;
+  color: var(--silver-dim);
+  text-transform: uppercase;
 }
 
-.titulo {
-  color: white;
-  font-size: 3rem;
+.intro-title {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  color: var(--white);
   letter-spacing: 2px;
-  opacity: 0;
-  transition: opacity 1.5s ease, transform 1.5s ease;
-  transform: scale(0.9);
+  text-shadow: 0 0 60px rgba(14, 165, 233, 0.5);
 }
 
-/* Botão visível */
-.titulo.activate {
-  opacity: 1;
-  cursor: pointer;
+.intro-role {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  color: var(--accent);
+  text-transform: uppercase;
 }
 
-@keyframes piscar {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.titulo.activate {
-  opacity: 1;
-  cursor: pointer;
-  animation: piscar 2s infinite ease-in-out;
-}
-
-/* Animação da intro */
-.titulo.show {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Conteúdo principal começa escondido */
-main {
-  opacity: 0;
-  transition: opacity 1s ease;
+/* Horizontal line decoration */
+.intro-content::before,
+.intro-content::after {
+  content: '';
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  display: block;
 }
